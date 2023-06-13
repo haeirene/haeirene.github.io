@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let main = document.querySelector(".main-interface");
 
     document.addEventListener("scroll", (event) => {
-        console.log("scroll");
         time = new Date().getTime();
 
         isOverlayActive = document.querySelector(".overlay---active");

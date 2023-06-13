@@ -224,7 +224,6 @@ window.addEventListener("load", () => {
 
                         // An event is available
                         if(currentEvent){
-                            console.log(prevEvent);
                             prevEvent.classList.remove("events___event---current");
 
                             currentEvent.classList.add("events___event---current");

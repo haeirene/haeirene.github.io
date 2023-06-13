@@ -1,9 +1,3 @@
-// Variables - coordinates
-let prevX = 0;
-let prevY = 0;
-let prevXBackward = 0;
-let prevYBackward = 0;
-
 // Variables - screen
 let centerWidth;
 let centerHeight;
@@ -41,10 +35,16 @@ let bg;
 
 // Variables - colors of the celestial objects
 let cPalette;
+let cWhite255;
+let cWhite200;
+let cWhite150;
 let cWhite100;
+let cWhite50;
 let cBlack255;
 
 let listOrbits = {};
+let orbits = [];
+let orbitsId = 0;
 
 function preload(){
     bg = loadImage("../data/events/images/bg.png");
@@ -61,7 +61,12 @@ function setup(){
     createCanvas(windowWidth, windowHeight);
 
     //Define colors
-    cWhite100 = color(255, 255, 255);
+    cWhite255 = color(255, 255, 255, 255);
+    cWhite200 = color(255, 255, 255, 200);
+    cWhite150 = color(255, 255, 255, 150);
+    cWhite100 = color(255, 255, 255, 100);
+    cWhite50 = color(255, 255, 255, 50);
+
     cBlack255 = color(29, 26, 27);
 
     // Declare all celestial objects
@@ -101,7 +106,9 @@ function draw(){
         if(isForward){
             // We go forward in time
             if(drawCount < thresholdOrbit){
-                drawOrbitForward(drawCount, cWhite100);
+                background(bg);
+                drawEarth();
+                drawOrbitForward(drawCount);
             }
             else{
                 isPaused = true;
@@ -110,14 +117,9 @@ function draw(){
         // We go backward in time
         else{
             if(drawCount > thresholdOrbit){
-                drawOrbitForward(drawCount, cBlack255);
-
-                //Redraw
-                if(!isBackwardDrawn){
-                    for(let i = 0; i < thresholdOrbit; i++){
-                        drawOrbitForward(i, cWhite100);
-                    }
-                }
+                background(bg);
+                drawEarth();
+                drawOrbitBackward(cWhite255);
             }
         }
 
@@ -141,56 +143,125 @@ function draw(){
     }
 }
 
-function drawOrbitForward(counter, c){
+function drawOrbitForward(counter){
     let divideBy = currentCelestialObject.divideBy;
-    let cPrevX;
-    let cPrevY;
-    let sw; //strokeWeight
-
     let x = listOrbits[counter]["xyz"]["x"] / divideBy + centerWidth;
     let y = listOrbits[counter]["xyz"]["y"] / divideBy + centerHeight;
+    orbits[orbitsId] = createVector(x, y);
 
-    if(isForward){
-        cPrevX = prevX;
-        cPrevY = prevY;
-        sw = 1.5;
+    for(let i = 0; i < orbits.length; i++){
+        if(i > 0){
+            // 5 year +
+            if(orbits.length > 480){
+                if(i > (orbits.length - 96)){
+                    strokeHandler(1);
+                }
+                else if(i > (orbits.length - 192)){
+                    strokeHandler(2);
+                }
+                else if(i > (orbits.length - 288)){
+                    strokeHandler(3);
+                }
+                else if(i > (orbits.length - 384)){
+                    strokeHandler(4);
+                }
+                else{
+                    strokeHandler(5);
+                }
+            }
+            // 4 year +
+            else if(orbits.length > 384 && i > 384){
+                strokeHandler(1);
+            }
+            else if(orbits.length > 384 && i > 288){
+                strokeHandler(2);
+            }
+            else if(orbits.length > 384 && i > 192){
+                strokeHandler(3);
+            }
+            else if(orbits.length > 384 && i > 96){
+                strokeHandler(4);
+            }
+            else if(orbits.length > 384 && i < 96){
+                strokeHandler(5);
+            }
+            // 3 year +
+            else if(orbits.length > 288 && i > 288){
+                strokeHandler(1);
+            }
+            else if(orbits.length > 288 && i > 192){
+                strokeHandler(2);
+            }
+            else if(orbits.length > 288 && i > 96){
+                strokeHandler(3);
+            }
+            else if(orbits.length > 288 && i < 96){
+                strokeHandler(4);
+            }
+            // 2 year +
+            else if(orbits.length > 192 && i > 192){
+                strokeHandler(1);
+            }
+            else if(orbits.length > 192 && i > 96){
+                strokeHandler(2);
+            }
+            else if(orbits.length > 192 && i < 96){
+                strokeHandler(3);
+            }
+            // 1 year +
+            else if(orbits.length > 96 && i > 96){
+                strokeHandler(1);
+            }
+            else if(orbits.length > 96 && i < 96){
+                strokeHandler(2);
+            }
+            else{
+                strokeHandler(1);
+            }
+    
+            strokeWeight(1);
+            line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y);
+        }
     }
-    else if(!isForward && c === cBlack255){
-        cPrevX = prevX;
-        cPrevY = prevY;
-        sw = 3;
+    orbitsId++;
+}
+
+function strokeHandler(order){
+    switch(order){
+        case 1:
+            stroke(cWhite255);
+            break;
+        case 2:
+            stroke(cWhite200);
+            break;
+        case 3:
+            stroke(cWhite150);
+            break;
+        case 4:
+            stroke(cWhite100);
+            break;
+        case 5:
+            stroke(cWhite50);
+            break;
     }
-    else{
-        cPrevX = prevXBackward;
-        cPrevY = prevYBackward;
-        sw = 1.5;
+}
+
+function drawOrbitBackward(c){
+    orbits.splice(orbits.length - 1, 1);
+
+    for(let i = 0; i < orbits.length; i++){
+        if(orbits.length > 1 && i > 0){
+            strokeWeight(1);
+            stroke(c);
+            line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y)
+        }
     }
 
-    // Draw all coordinates (except the first as a line)
-    if(cPrevX != 0){
-        stroke(c);
-        strokeWeight(sw);
-        line(cPrevX, cPrevY, x, y);
-    }
-        
-    if(isForward){
-        prevX = x;
-        prevY = y;
-    }
-    else if(!isForward && c === cBlack255){
-        prevX = x;
-        prevY = y;
-    }
-    else{
-        prevXBackward = x;
-        prevYBackward = y;
-    }
+    orbitsId--;
 }
 
 // Change the planet by correct mouseclick
 function mouseClicked(event) {
-    console.log(event);
-
     if(event.target){
         //Mozilla
         // let selectedElement = event.explicitOriginalTarget;
@@ -198,9 +269,9 @@ function mouseClicked(event) {
         // let selectedCelestialObject = selectedElement.className;
 
         // Google chrome
-        //let selectedElement = event.target.className;
         let parentElement = event.srcElement.parentElement;
         let selectedCelestialObject = event.target.className;
+        let isDefault = false;
 
         switch(selectedCelestialObject) {
             case 'mercury':
@@ -232,21 +303,30 @@ function mouseClicked(event) {
                 break;
             default:
                 currentCelestialObjectId = 0;
+                isDefault = true;
                 break;
             }
-        
-            currentCelestialObject = celestialObjects[currentCelestialObjectId];
+
+            if(!isDefault){
+                currentCelestialObject = celestialObjects[currentCelestialObjectId];
             
-            //Change appearance in menu
-            let currentCelestialBody = document.querySelector(".celestial_body---selected");
+                //Change appearance in menu
+                let currentCelestialBody = document.querySelector(".celestial_body---selected");
+    
+                if(currentCelestialBody){
+                    currentCelestialBody.classList.remove("celestial_body---selected");
+                }
+    
+                parentElement.classList.add("celestial_body---selected");
 
-            if(currentCelestialBody){
-                currentCelestialBody.classList.remove("celestial_body---selected");
+                console.log(document.querySelector(".description"))
+                document.querySelector(".description").innerHTML = `
+                    Point of view of Earth<br><br>
+                    Scale 1/${currentCelestialObject.divideBy}
+                    `
+    
+                resetDesign();
             }
-
-            parentElement.classList.add("celestial_body---selected");
-
-            resetDesign();
     }
 }
 
@@ -257,16 +337,11 @@ function resetDesign(){
     centerWidth = windowWidth / 2;
     centerHeight = windowHeight / 2;
     orbitCount = 0;
-    prevX = 0;
-    prevY = 0;
-    prevXBackward = 0;
-    prevYBackward = 0;
+    orbits = [];
+    orbitsId = 0;
 
     background(bg);
-
-    fill(0, 177, 255);
-    noStroke();
-    circle(centerWidth, centerHeight, 25);
+    drawEarth();
 
     // Orbit data
     currentCelestialObject.getOrbitData();
@@ -320,7 +395,6 @@ function getCurrentTimestamp(){
 
         if(currentCelestialObject === undefined){
             currentCelestialObject = celestialObjects[0];
-            console.log(newTimestampElement);
             //thresholdOrbit = currenTM;
         }
         else{
@@ -344,6 +418,45 @@ function getCurrentTimestamp(){
 
     isPaused = false;
     currentPos = thresholdOrbit;
-    prevXBackward = 0;
-    prevYBackward = 0;
+}
+
+function drawEarth(){
+    let sizeEarth = 0;
+
+    switch(currentCelestialObject.name) {
+        case 'mercury':
+            sizeEarth = 45;
+            break;
+        case 'venus':
+            sizeEarth = 40;
+            break;
+        case 'moon':
+            sizeEarth = 35;
+            break;
+        case 'mars':
+            sizeEarth = 30;
+            break;
+        case 'jupiter':
+            sizeEarth = 25;
+            break;
+        case 'saturn':
+            sizeEarth = 20;
+            break;
+        case 'uranus':
+            sizeEarth = 15;
+            break;
+        case 'neptune':
+            sizeEarth = 10;
+            break;
+        case 'pluto':
+            sizeEarth = 5;
+            break;
+        default:
+            sizeEarth = 45;
+            break;
+    }
+
+    fill(0, 177, 255);
+    noStroke();
+    circle(centerWidth, centerHeight, sizeEarth);
 }
