@@ -17,7 +17,7 @@
 				"month": "February",
 				"day": 18
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Discoveries",
 				"Observations"
@@ -131,7 +131,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -140,7 +140,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -149,7 +149,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -158,7 +158,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -167,7 +167,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "May",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -176,7 +176,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -185,7 +185,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -194,7 +194,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -203,7 +203,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -212,7 +212,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -221,7 +221,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -230,7 +230,7 @@
 			"title": "",
 			"date": {
 				"year": 1931,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -239,7 +239,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -248,7 +248,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -257,7 +257,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -266,7 +266,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -275,7 +275,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "May",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -284,7 +284,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -293,7 +293,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -302,7 +302,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -311,7 +311,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -320,7 +320,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -329,7 +329,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -338,7 +338,7 @@
 			"title": "",
 			"date": {
 				"year": 1932,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -347,7 +347,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -356,7 +356,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -365,7 +365,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -374,7 +374,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -383,7 +383,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "May",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -392,7 +392,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -401,7 +401,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -410,7 +410,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -419,7 +419,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -428,7 +428,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -437,7 +437,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -446,7 +446,7 @@
 			"title": "",
 			"date": {
 				"year": 1933,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -455,7 +455,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -464,7 +464,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -473,7 +473,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -482,7 +482,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -491,7 +491,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "May",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -500,7 +500,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -509,7 +509,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -518,7 +518,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -527,7 +527,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -536,7 +536,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -545,7 +545,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -554,7 +554,7 @@
 			"title": "",
 			"date": {
 				"year": 1934,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -563,7 +563,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -572,7 +572,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -581,7 +581,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -590,7 +590,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -599,7 +599,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "May",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -608,7 +608,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -617,7 +617,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -626,7 +626,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -635,7 +635,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -644,7 +644,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -653,7 +653,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -662,7 +662,7 @@
 			"title": "",
 			"date": {
 				"year": 1935,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -671,7 +671,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -680,7 +680,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -689,7 +689,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -698,7 +698,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -707,7 +707,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "May",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -716,7 +716,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -725,7 +725,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -734,7 +734,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -743,7 +743,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -752,7 +752,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -761,7 +761,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -770,7 +770,7 @@
 			"title": "",
 			"date": {
 				"year": 1936,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -887,7 +887,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "January",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -896,7 +896,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "February",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -905,7 +905,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "March",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -914,7 +914,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "April",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -923,7 +923,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "June",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -932,7 +932,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "July",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -941,7 +941,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "August",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -950,7 +950,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "September",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -959,7 +959,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "October",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -968,7 +968,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "November",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -977,7 +977,7 @@
 			"title": "",
 			"date": {
 				"year": 1938,
-				"month": "",
+				"month": "December",
 				"day": 0
 			},
 			"media_layout": "placeholder"
@@ -1809,7 +1809,7 @@
 				"month": "July",
 				"day": 9
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Observations",
 				"Animals in space"
@@ -1845,7 +1845,7 @@
 				"month": "October",
 				"day": 24
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Earth"
@@ -1927,7 +1927,7 @@
 				"month": "June",
 				"day": 24
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"UFO"
 			],
@@ -2143,7 +2143,7 @@
 				"month": "June",
 				"day": 14
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Animals in space",
 				"Firsts"
@@ -3072,7 +3072,7 @@
 				"month": "October",
 				"day": 4
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Space race"
 			],
@@ -3090,7 +3090,7 @@
 				"month": "November",
 				"day": 3
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Space race",
 				"Animals in space"
@@ -3172,7 +3172,7 @@
 				"month": "July",
 				"day": 29
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Space agencies",
 				"Organisations"
@@ -3317,7 +3317,7 @@
 				"month": "October",
 				"day": 4
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Photography",
 				"Moon"
@@ -3381,7 +3381,7 @@
 				"month": "April",
 				"day": 1
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Telecommunications",
 				"Satellites"
@@ -3436,7 +3436,7 @@
 				"month": "August",
 				"day": 19
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Space race",
 				"Animals in space"
@@ -3509,7 +3509,7 @@
 				"month": "April",
 				"day": 12
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Firsts",
 				"Space race"
@@ -3528,7 +3528,7 @@
 				"month": "May",
 				"day": 25
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Space race",
 				"Politics"
@@ -3682,7 +3682,7 @@
                 "month": "September",
                 "day": 12
             },
-            "countries": "USA",
+            "countries": "usa",
             "category": [
                 "Space race",
                 "Politics",
@@ -3774,7 +3774,7 @@
 				"month": "June",
 				"day": 16
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Firsts",
 				"Space race"
@@ -3984,7 +3984,7 @@
 				"month": "March",
 				"day": 18
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Firsts",
 				"Space race"
@@ -4147,7 +4147,7 @@
 				"month": "August",
 				"day": 23
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Moon"
@@ -4265,7 +4265,7 @@
 				"month": "August",
 				"day": 8
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Lunar Orbiter 5"
@@ -4410,7 +4410,7 @@
 				"month": "December",
 				"day": 7
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Space telescopes"
@@ -4429,7 +4429,7 @@
 				"month": "December",
 				"day": 24
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Moon missions"
@@ -4502,7 +4502,7 @@
 				"month": "July",
 				"day": 20
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Space race",
 				"Moon missions"
@@ -4720,7 +4720,7 @@
 				"month": "June",
 				"day": 29
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Firsts",
 				"Accidents"
@@ -4875,7 +4875,7 @@
 				"month": "December",
 				"day": 11
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Apollo missions",
 				"Moon missions"
@@ -5315,7 +5315,7 @@
 				"month": "July",
 				"day": 20
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Mars"
@@ -6819,7 +6819,7 @@
 				"month": "April",
 				"day": 24
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Space telescopes"
 			],
@@ -7378,7 +7378,7 @@
 				"month": "April",
 				"day": 1
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Hubble Space Telescope"
@@ -8045,7 +8045,7 @@
 				"month": "April",
 				"day": 12
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Firsts",
 				"Space tourism"
@@ -8154,7 +8154,7 @@
 				"month": "March",
 				"day": 14
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Space agencies",
 				"Organisations",
@@ -9924,7 +9924,7 @@
 				"month": "February",
 				"day": 6
 			},
-			"countries": "USSR",
+			"countries": "ussr",
 			"category": [
 				"Firsts",
 				"Space debris",
@@ -10062,7 +10062,7 @@
 				"month": "April",
 				"day": 10
 			},
-			"countries": "USA",
+			"countries": "usa",
 			"category": [
 				"Photography",
 				"Black holes"
