@@ -219,7 +219,7 @@ function drawOrbitForward(counter){
                 strokeHandler(1);
             }
     
-            strokeWeight(1);
+            strokeWeight(2);
             line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y);
         }
     }
@@ -251,8 +251,77 @@ function drawOrbitBackward(c){
 
     for(let i = 0; i < orbits.length; i++){
         if(orbits.length > 1 && i > 0){
-            strokeWeight(1);
-            stroke(c);
+            if(i > 0){
+                // 5 year +
+                if(orbits.length > 480){
+                    if(i > (orbits.length - 96)){
+                        strokeHandler(1);
+                    }
+                    else if(i > (orbits.length - 192)){
+                        strokeHandler(2);
+                    }
+                    else if(i > (orbits.length - 288)){
+                        strokeHandler(3);
+                    }
+                    else if(i > (orbits.length - 384)){
+                        strokeHandler(4);
+                    }
+                    else{
+                        strokeHandler(5);
+                    }
+                }
+                // 4 year +
+                else if(orbits.length > 384 && i > 384){
+                    strokeHandler(1);
+                }
+                else if(orbits.length > 384 && i > 288){
+                    strokeHandler(2);
+                }
+                else if(orbits.length > 384 && i > 192){
+                    strokeHandler(3);
+                }
+                else if(orbits.length > 384 && i > 96){
+                    strokeHandler(4);
+                }
+                else if(orbits.length > 384 && i < 96){
+                    strokeHandler(5);
+                }
+                // 3 year +
+                else if(orbits.length > 288 && i > 288){
+                    strokeHandler(1);
+                }
+                else if(orbits.length > 288 && i > 192){
+                    strokeHandler(2);
+                }
+                else if(orbits.length > 288 && i > 96){
+                    strokeHandler(3);
+                }
+                else if(orbits.length > 288 && i < 96){
+                    strokeHandler(4);
+                }
+                // 2 year +
+                else if(orbits.length > 192 && i > 192){
+                    strokeHandler(1);
+                }
+                else if(orbits.length > 192 && i > 96){
+                    strokeHandler(2);
+                }
+                else if(orbits.length > 192 && i < 96){
+                    strokeHandler(3);
+                }
+                // 1 year +
+                else if(orbits.length > 96 && i > 96){
+                    strokeHandler(1);
+                }
+                else if(orbits.length > 96 && i < 96){
+                    strokeHandler(2);
+                }
+                else{
+                    strokeHandler(1);
+                }
+            }
+
+            strokeWeight(2);
             line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y)
         }
     }
@@ -319,7 +388,6 @@ function mouseClicked(event) {
     
                 parentElement.classList.add("celestial_body---selected");
 
-                console.log(document.querySelector(".description"))
                 document.querySelector(".description").innerHTML = `
                     Point of view of Earth<br><br>
                     Scale 1/${currentCelestialObject.divideBy}
@@ -339,6 +407,8 @@ function resetDesign(){
     orbitCount = 0;
     orbits = [];
     orbitsId = 0;
+    thresholdOrbit = 8;
+    currentPos = 0;
 
     background(bg);
     drawEarth();

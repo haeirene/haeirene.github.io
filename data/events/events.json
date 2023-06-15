@@ -80,7 +80,7 @@
 				"month": "August",
 				"day": 24
 			},
-			"countries": "UK",
+			"countries": "uk",
 			"category": [
 				"News",
 				"Astrology"
@@ -3915,11 +3915,10 @@
 				"Satellites",
 				"Telecommunications"
 			],
-			"media_layout": "video",
+			"media_layout": "audio",
 			"media": {
-				"video_width": 430,
-				"video_height": 423,
-				"video_src": "test.mp4"
+				"audio": "1964_olympic.m4a",
+				"text": ""
 			}
 		},
 		{
@@ -4507,11 +4506,10 @@
 				"Space race",
 				"Moon missions"
 			],
-			"media_layout": "video",
+			"media_layout": "audio",
 			"media": {
-				"video_width": 430,
-				"video_height": 423,
-				"video_src": "test.mp4"
+				"audio": "apollo_11.m4a",
+				"text": ""
 			}
 		},
 		{
@@ -4586,15 +4584,25 @@
 			},
 			"media_layout": "placeholder"
 		},
-		{
-			"title": "",
-			"date": {
-				"year": 1970,
-				"month": "April",
-				"day": 0
-			},
-			"media_layout": "placeholder"
-		},
+        {
+            "title": "Houston, we have a problem",
+            "subtitle": "Popularl quote spoken during Apollo 13.",
+            "date": {
+                "year": 1970,
+                "month": "April",
+                "day": 14
+            },
+            "countries": "usa",
+            "category": [
+                "Space race",
+				"Quotes"
+            ],
+            "media_layout": "audio",
+            "media": {
+                "audio": "houston.ogg",
+                "text": "After an explosion occurred on board the spacecraft en route to the Moon at 55:54:53 (03:07 UTC on April 14, 1970),[1] Jack Swigert, the command module pilot, reported to Mission Control Center in Houston, Texas: 'Okay, Houston ... we've had a problem here.'"
+            }
+        },
 		{
 			"title": "",
 			"date": {
@@ -4738,7 +4746,7 @@
 				"month": "July",
 				"day": 20
 			},
-			"countries": "BE",
+			"countries": "be",
 			"category": [
 				"Art",
 				"Moon",
@@ -4880,11 +4888,10 @@
 				"Apollo missions",
 				"Moon missions"
 			],
-			"media_layout": "video",
+			"media_layout": "audio",
 			"media": {
-				"video_width": 430,
-				"video_height": 423,
-				"video_src": "test.mp4"
+				"audio": "apollo_17.m4a",
+				"text": ""
 			}
 		},
 		{
@@ -5165,7 +5172,7 @@
 				"month": "May",
 				"day": 30
 			},
-			"countries": "EU",
+			"countries": "eu",
 			"category": [
 				"Space agencies",
 				"Organisations"
@@ -5201,11 +5208,10 @@
 				"Apollo missions",
 				"Soyuz missions"
 			],
-			"media_layout": "video",
+			"media_layout": "audio",
 			"media": {
-				"video_width": 430,
-				"video_height": 423,
-				"video_src": "test.mp4"
+				"audio": "apollo_soyuz.mp3",
+				"text": ""
 			}
 		},
 		{
@@ -5385,8 +5391,8 @@
 			],
 			"media_layout": "audio",
 			"media": {
-				"audio": "audio.mp4",
-				"text": "This is a present from a small, distant world, a token of our sounds, our science, our images, our music, our thoughts and our feelings. We are attempting to survive our time so we may live into yours.<br><br>— President Jimmy Carter"
+				"audio": "voyager_golden_record.m4a",
+				"text": ""
 			}
 		},
 		{
@@ -7035,7 +7041,7 @@
 				"month": "March",
 				"day": 24
 			},
-			"countries": "BE",
+			"countries": "be",
 			"category": [
 				"Astronauts",
 				"Spaceshuttle Atlantis"
@@ -8228,7 +8234,7 @@
 				"month": "October",
 				"day": 30
 			},
-			"countries": "BE",
+			"countries": "be",
 			"category": [
 				"Astronauts",
 				"ISS",
@@ -8346,7 +8352,7 @@
 				"month": "October",
 				"day": 15
 			},
-			"countries": "CH",
+			"countries": "ch",
 			"category": [
 				"Astronauts",
 				"ISS",
@@ -8969,7 +8975,7 @@
 				"month": "May",
 				"day": 27
 			},
-			"countries": "BE",
+			"countries": "be",
 			"category": [
 				"Astronauts",
 				"ISS"

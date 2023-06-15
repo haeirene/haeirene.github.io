@@ -1,9 +1,6 @@
 window.addEventListener("load", () => {
-    console.log("TIMELINE");
-    console.log("------------");
-
     let audio = document.querySelector(".audio");
-    audio.src = "data/events/audio/sun_sonification.wav";
+    audioHandler();
     let playPromise = audio.play();
 
     if (playPromise !== undefined) {
@@ -18,7 +15,6 @@ window.addEventListener("load", () => {
     }
 
     let timelineContainer = document.querySelector(".timeline");
-    let years = [];
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let counterMonth = 1;
 
@@ -60,7 +56,6 @@ window.addEventListener("load", () => {
     document.addEventListener("scroll", (event) => {
         // MATH
         let lastY = 23290; //last possible scroll position
-        let amountOfYears = lastYear - startYear - 1;
         let amountOfMonths = lastY / 1200;
 
         // TIMELINE
@@ -77,10 +72,84 @@ window.addEventListener("load", () => {
         }
     });
 
-    console.log("EVENTS");
-    console.log("------------");
     let url = `/data/events/events.json`;
     let eventsContainer = document.querySelector(".events");
+
+    function checkCountry(country){
+        let txt = "";
+
+        switch(country){
+            case "be":
+                txt = "Belgium";
+                break;
+            case "ch":
+                txt = "China";
+                break;
+            case "eu":
+                txt = "EU";
+                break;
+            case "jp":
+                txt = "Japan";
+                break;
+            case "uk":
+                txt = "UK";
+                break;
+            case "usa":
+                txt = "USA";
+                break;
+            case "ussr":
+                txt = "USSR";
+                break;
+            default:
+                txt = "international";
+                break;
+        }
+
+        return txt;
+    }
+
+    function audioHandler(){
+        let celestialBody = "";
+        
+        celestialBody = document.querySelector(".celestial_body---selected").getElementsByTagName("a")[0].innerHTML;
+
+        if(celestialBody )
+        switch(celestialBody){
+            case "Mercury":
+                audio.src = "data/events/audio/sun_sonification.wav";
+                break;
+            case "Venus":
+                audio.src = "data/events/audio/venus.mp3";
+                break;
+            case "Venus":
+                audio.src = "data/events/audio/mars.wav";
+                break;
+            case "Moon":
+                audio.src = "data/events/audio/moon.m4a";
+                break;
+            case "Mars":
+                audio.src = "data/events/audio/mars.wav";
+                break;
+            case "Jupiter":
+                audio.src = "data/events/audio/jupiter.wav";
+                break;
+            case "Saturn":
+                audio.src = "data/events/audio/saturn.mp4";
+                break;
+            case "Uranus":
+                audio.src = "data/events/audio/uranus.m4a";
+                break;
+            case "Neptune":
+                audio.src = "data/events/audio/neptune.m4a";
+                break;
+            case "Pluto":
+                audio.src = "data/events/audio/sun_sonification.wav";
+                break;
+            default:
+                audio.src = "data/events/audio/sun_sonification.wav";
+                break;
+        }
+    }
     
     fetch(url)
         .then(response => response.text())
@@ -108,16 +177,6 @@ window.addEventListener("load", () => {
                             layout = `<p class="events___event---audiotxt">${events[i].media.text}</p>`;
                             classLayout = "audio";
                             isPlaceholder = false;
-                            break;
-                        case "video":
-                            //autoplay = 1 => automatically play when an user visits the page
-                            // layout = `<video width="320" height="240" autoplay>
-                            //     <source src="data/events/video/test.mp4" type="video/mp4">
-                            //     Your browser does not support the video tag.
-                            // </video>`;
-                            layout = ``;
-                            isPlaceholder = false;
-                            classLayout = "audio";
                             break;
                         case "text":
                             layout = `<p class="events___event---audiotxt">${events[i].media.text}</p>`; 
@@ -159,18 +218,18 @@ window.addEventListener("load", () => {
                     }
                     else{
                         let isFlag = '';
-                        let countries = events[i].countries;
+                        let countries = checkCountry(events[i].countries);
 
                         // Custom countries
                         if(events[i].countries === "international"){
-                            isFlag = events[i].date.year;
+                            isFlag = '<img class="event---flag" src="data/events/images/international.png" alt="Icon of the world">';
                         }
                         else if(Array.isArray(events[i].countries)){
                             isFlag =
                                 '<img class="event---flag event---flag-first" src="data/events/images/' + events[i].countries[0] + '.png" alt="Flag of ' + events[i].countries[0] + '">' +
                                 '<img class="event---flag" src="data/events/images/' + events[i].countries[1] + '.png" alt="Flag of ' + events[i].countries[1] + '">';
 
-                            countries = events[i].countries[0] + " and " + events[i].countries[1];
+                            countries = checkCountry(events[i].countries[0]) + " and " + checkCountry(events[i].countries[1]);
                         }
                         else{
                             isFlag = '<img class="event---flag" src="data/events/images/' + events[i].countries + '.png" alt="Flag of ' + events[i].countries + '">';
@@ -179,7 +238,7 @@ window.addEventListener("load", () => {
                         // Custom countries
                         let isDate = '';
                         if(events[i].date.month === "January" && events[i].date.day === 0){
-                            isDate = '';
+                            isDate = events[i].date.year;
                         }
                         else{
                             isDate = events[i].date.year + ", " + events[i].date.month + " " + events[i].date.day;
@@ -209,37 +268,70 @@ window.addEventListener("load", () => {
                     }
                 }
 
-                let allEvents = document.querySelectorAll(".events___event");
                 document.addEventListener("scroll", (event) => {
                     // Prevent fast scroll
-                    setTimeout(() => {
-                        let containerMonth = document.querySelector(".timeline___month---current").parentElement.parentElement;
-                        let year = containerMonth.getElementsByTagName("p")[0].innerHTML;
-                        let month = document.querySelector(".timeline___month---current").getElementsByTagName("p")[0].innerHTML;
 
-                        let prevEvent = document.querySelector(".events___event---current");
+                    let containerMonth = document.querySelector(".timeline___month---current").parentElement.parentElement;
+                    let year = containerMonth.getElementsByTagName("p")[0].innerHTML;
+                    let month = document.querySelector(".timeline___month---current").getElementsByTagName("p")[0].innerHTML;
 
-                        let currentEventId = "e-" + year + "-" + month;
-                        let currentEvent = document.getElementById(currentEventId);
+                    let prevEvent = document.querySelector(".events___event---current");
 
-                        // An event is available
-                        if(currentEvent){
-                            prevEvent.classList.remove("events___event---current");
+                    let currentEventId = "e-" + year + "-" + month;
+                    let currentEvent = document.getElementById(currentEventId);
 
-                            currentEvent.classList.add("events___event---current");
+                    // An event is available
+                    if(currentEvent){
+                        prevEvent.classList.remove("events___event---current");
+                        currentEvent.classList.add("events___event---current");
                             
-                            // Background sound
-                            if(currentEvent.classList.contains("events___event---audio")){
-                                if(currentEvent.querySelector(".audio---source").innerHTML){
-                                    audio.src = "data/events/audio/" + currentEvent.querySelector(".audio---source").innerHTML;
-                                }
+                        // Background sound
+                        if(currentEvent.classList.contains("events___event---audio")){
+                            if(currentEvent.querySelector(".audio---source").innerHTML){
+                                audio.src = '';
+                                audio.src = "data/events/audio/" + currentEvent.querySelector(".audio---source").innerHTML;
+                            }
                                             
-                                let playPromise = audio.play();
+                            let playPromise = audio.play();
             
+                            if (playPromise !== undefined) {
+                                playPromise.then(_ => {
+                                    // Automatic playback started!
+                                    // Show playing UI.
+                                })
+                                .catch(error => {
+                                    // Auto-play was prevented
+                                    // Show paused UI.
+                                });
+                            }
+                        }
+                        else{
+                            // Only go to default audio if the audio is not the default file.
+                            if(audio.src != "http://localhost:8001/data/events/audio/sun_sonification.wav"){
+                                audioHandler();
+                                                
+                                let playPromise = audio.play();
+                
                                 if (playPromise !== undefined) {
                                     playPromise.then(_ => {
                                         // Automatic playback started!
                                         // Show playing UI.
+                                        })
+                                    .catch(error => {
+                                        // Auto-play was prevented
+                                        // Show paused UI.
+                                    });
+                                }
+                            }
+                            else if(audio.src != "https://haeirene.github.io/data/events/audio/sun_sonification.wav"){
+                                audioHandler();
+                                                
+                                let playPromise = audio.play();
+                
+                                if (playPromise !== undefined) {
+                                    playPromise.then(_ => {
+                                    // Automatic playback started!
+                                    // Show playing UI.
                                     })
                                     .catch(error => {
                                         // Auto-play was prevented
@@ -247,27 +339,8 @@ window.addEventListener("load", () => {
                                     });
                                 }
                             }
-                            else{
-                                // Only go to default audio if the audio is not the default file.
-                                if(audio.src != "data/events/audio/sun_sonification.wav"){
-                                    audio.src = "data/events/audio/sun_sonification.wav";
-                                                    
-                                    let playPromise = audio.play();
-                
-                                    if (playPromise !== undefined) {
-                                        playPromise.then(_ => {
-                                            // Automatic playback started!
-                                            // Show playing UI.
-                                        })
-                                        .catch(error => {
-                                            // Auto-play was prevented
-                                            // Show paused UI.
-                                        });
-                                    }
-                                }
-                            }
                         }
-                    }, 1000);
+                    }
                 });
             } catch (error) {
                 console.log("Error:" + error);
