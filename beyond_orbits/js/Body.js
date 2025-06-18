@@ -1,5 +1,5 @@
-class Body{
-    constructor(id, name, filename, startLineId, endLineId, divideBy){
+class Body {
+    constructor(id, name, filename, startLineId, endLineId, divideBy) {
         this.id = id;
         this.name = name;
         this.filename = filename;
@@ -7,31 +7,31 @@ class Body{
         this.endLineId = endLineId;
         this.divideBy = divideBy;
         this.orbits = [];
-        
+
         // Check
         this.firstDateInDataset = [];
     }
 
     // Get all the orbit data from the file
-    getOrbitData(){
-        var url = `/data/orbits/${this.filename}`;
+    getOrbitData() {
+        var url = `../beyond_orbits/data/orbits/${this.filename}`;
 
         fetch(url)
-            .then(response => response.text())
-            .then(data => {
+            .then((response) => response.text())
+            .then((data) => {
                 try {
                     var planetData = data;
                     planetData = this.parseOrbitData(planetData);
                 } catch (error) {
-                    console.error('Error', error);
-                };
-        })
-        .catch((error) => {
-            console.error('Error', error);
-        });
+                    console.error("Error", error);
+                }
+            })
+            .catch((error) => {
+                console.error("Error", error);
+            });
     }
 
-    parseOrbitData(planetData){
+    parseOrbitData(planetData) {
         // Help source: https://github.com/chrishorton/horizons-graphql/blob/master/src/helpers.js
 
         /*
@@ -41,7 +41,7 @@ class Body{
         Returns:
             rawData,Dictionary{String:String} - keys and values to be matched up to GraphQL schema items
         */
-        var planetInfo = {}
+        var planetInfo = {};
         // Create an array for each line of data
         planetInfo = planetData.split("\n");
 
@@ -57,21 +57,21 @@ class Body{
 
         let hasFirstDateSaved = false;
 
-        for(let i = 0; i < threshold; i++){
+        for (let i = 0; i < threshold; i++) {
             // OPTION SHIFT L
             // Every 2 lines, collect the position of the planet.
             // Line 1 = date + hour
             // Line 2 = x, y, z
 
-            if(i === 0 || ((i % 2) === 0)){
+            if (i === 0 || i % 2 === 0) {
                 let objectId = startLineId + i;
 
                 // Put the text data in the correct object
                 this.orbits[arrayId] = [];
 
                 let tempDate = planetInfo[objectId].trim().split(/(\s+)/);
-                tempDate = tempDate.slice(2,7).join("");
-                tempDate = tempDate.replace('= A.D. ', '');
+                tempDate = tempDate.slice(2, 7).join("");
+                tempDate = tempDate.replace("= A.D. ", "");
 
                 let tempXyz = planetInfo[objectId + 1];
                 this.orbits[arrayId]["xyz"] = {};
@@ -82,16 +82,16 @@ class Body{
                 // Remove all unecessary values and save each coordinate correctly
 
                 // x
-                let x = tempXyz.replace(' ', '');
-                x = x.replace('X = ', '');
-                x = x.replace('X =', '');
+                let x = tempXyz.replace(" ", "");
+                x = x.replace("X = ", "");
+                x = x.replace("X =", "");
                 let y = x;
                 x = x.split(" ");
 
                 // y
-                y = y.replace(x[0], '');
-                y = y.replace(' Y = ', '');
-                y = y.replace(' Y =', '');
+                y = y.replace(x[0], "");
+                y = y.replace(" Y = ", "");
+                y = y.replace(" Y =", "");
                 y = y.split(" ");
 
                 //TO DO: something goes wrong here
@@ -108,14 +108,14 @@ class Body{
         return this.orbits;
     }
 
-    getOrbits(){
+    getOrbits() {
         return this.orbits;
     }
 
-    convertDate(date){
+    convertDate(date) {
         // Split the date in 3 parts: year, month and days
-        date = date.replace('-', ' ');
-        date = date.replace('-', ' ');
+        date = date.replace("-", " ");
+        date = date.replace("-", " ");
 
         let tempDate = date.split(" ", 3);
         let year = tempDate[0];
@@ -125,40 +125,40 @@ class Body{
         let result = [];
 
         //Month
-        switch(tempDate[1]) {
-            case 'Jan':
+        switch (tempDate[1]) {
+            case "Jan":
                 month = 1;
                 break;
-            case 'Feb':
+            case "Feb":
                 month = 2;
                 break;
-            case 'Mar':
+            case "Mar":
                 month = 3;
                 break;
-            case 'Apr':
+            case "Apr":
                 month = 4;
                 break;
-            case 'May':
+            case "May":
                 month = 5;
                 break;
-            case 'Jun':
+            case "Jun":
                 month = 6;
                 break;
-            case 'Jul':
+            case "Jul":
                 month = 7;
-            case 'Aug':
+            case "Aug":
                 month = 8;
                 break;
-            case 'Sep':
+            case "Sep":
                 month = 9;
                 break;
-            case 'Oct':
+            case "Oct":
                 month = 10;
                 break;
-            case 'Nov':
+            case "Nov":
                 month = 11;
                 break;
-            case 'Dec':
+            case "Dec":
                 month = 12;
                 break;
         }

@@ -46,15 +46,15 @@ let listOrbits = {};
 let orbits = [];
 let orbitsId = 0;
 
-function preload(){
-    bg = loadImage("../data/events/images/bg.png");
+function preload() {
+    bg = loadImage("../beyond_orbits/data/events/images/bg.png");
 }
 
 let currentTimestamp = "1950-January";
 let currentY = 0;
 let currentM = 0;
 
-function setup(){
+function setup() {
     // Everything about the canvas & screen
     centerWidth = windowWidth / 2;
     centerHeight = windowHeight / 2;
@@ -71,12 +71,19 @@ function setup(){
 
     // Declare all celestial objects
     // ID - name - filename - start line - end line - divideBy
-    mercury = new Body(199, "mercury", '01_mercury.txt', 51, 10070, 1000000);
-    venus = new Body(299, "venus", '02_venus.txt', 51, 10070, 1000000);
-    moon = new Body(301, "moon", '03_moon.txt', 52, 70181, 1500);
-    mars = new Body(499, "mars", '04_mars.txt', 55, 10072, 1000000);
-    jupiter = new Body(599, "jupiter", "05_jupiter.txt", 54, 10071, 10000000/2);
-    saturn = new Body(699, "saturn", "06_saturn.txt", 52, 10071, 10000000/2);
+    mercury = new Body(199, "mercury", "01_mercury.txt", 51, 10070, 1000000);
+    venus = new Body(299, "venus", "02_venus.txt", 51, 10070, 1000000);
+    moon = new Body(301, "moon", "03_moon.txt", 52, 70181, 1500);
+    mars = new Body(499, "mars", "04_mars.txt", 55, 10072, 1000000);
+    jupiter = new Body(
+        599,
+        "jupiter",
+        "05_jupiter.txt",
+        54,
+        10071,
+        10000000 / 2
+    );
+    saturn = new Body(699, "saturn", "06_saturn.txt", 52, 10071, 10000000 / 2);
     uranus = new Body(799, "uranus", "07_uranus.txt", 52, 10071, 10000000);
     neptune = new Body(899, "neptune", "08_neptune.txt", 54, 10071, 20000000);
     pluto = new Body(999, "pluto", "09_pluto.txt", 50, 10068, 20000000);
@@ -100,23 +107,22 @@ function setup(){
     resetDesign();
 }
 
-function draw(){
+function draw() {
     // Check if the list is not empty.
-    if(thresholdOrbit != 0 && listOrbits.length != 0){
-        if(isForward){
+    if (thresholdOrbit != 0 && listOrbits.length != 0) {
+        if (isForward) {
             // We go forward in time
-            if(drawCount < thresholdOrbit){
+            if (drawCount < thresholdOrbit) {
                 background(bg);
                 drawEarth();
                 drawOrbitForward(drawCount);
-            }
-            else{
+            } else {
                 isPaused = true;
             }
         }
         // We go backward in time
-        else{
-            if(drawCount > thresholdOrbit){
+        else {
+            if (drawCount > thresholdOrbit) {
                 background(bg);
                 drawEarth();
                 drawOrbitBackward(cWhite255);
@@ -126,99 +132,83 @@ function draw(){
         isBackwardDrawn = true;
     }
     // List of orbit coordinates is empty. Try again to get data.
-    else{
+    else {
         currentCelestialObject.getOrbitData();
         listOrbits = currentCelestialObject.getOrbits();
         getCurrentTimestamp();
     }
-    
-    if(!isPaused && isForward){
+
+    if (!isPaused && isForward) {
         drawCount++;
-    }
-    else if(!isPaused && !isForward){
+    } else if (!isPaused && !isForward) {
         // DrawCount can never be lower than 0.
-        if(drawCount > thresholdOrbit){
+        if (drawCount > thresholdOrbit) {
             drawCount--;
         }
     }
 }
 
-function drawOrbitForward(counter){
+function drawOrbitForward(counter) {
     let divideBy = currentCelestialObject.divideBy;
     let x = listOrbits[counter]["xyz"]["x"] / divideBy + centerWidth;
     let y = listOrbits[counter]["xyz"]["y"] / divideBy + centerHeight;
     orbits[orbitsId] = createVector(x, y);
 
-    for(let i = 0; i < orbits.length; i++){
-        if(i > 0){
+    for (let i = 0; i < orbits.length; i++) {
+        if (i > 0) {
             // 5 year +
-            if(orbits.length > 480){
-                if(i > (orbits.length - 96)){
+            if (orbits.length > 480) {
+                if (i > orbits.length - 96) {
                     strokeHandler(1);
-                }
-                else if(i > (orbits.length - 192)){
+                } else if (i > orbits.length - 192) {
                     strokeHandler(2);
-                }
-                else if(i > (orbits.length - 288)){
+                } else if (i > orbits.length - 288) {
                     strokeHandler(3);
-                }
-                else if(i > (orbits.length - 384)){
+                } else if (i > orbits.length - 384) {
                     strokeHandler(4);
-                }
-                else{
+                } else {
                     strokeHandler(5);
                 }
             }
             // 4 year +
-            else if(orbits.length > 384 && i > 384){
+            else if (orbits.length > 384 && i > 384) {
                 strokeHandler(1);
-            }
-            else if(orbits.length > 384 && i > 288){
+            } else if (orbits.length > 384 && i > 288) {
                 strokeHandler(2);
-            }
-            else if(orbits.length > 384 && i > 192){
+            } else if (orbits.length > 384 && i > 192) {
                 strokeHandler(3);
-            }
-            else if(orbits.length > 384 && i > 96){
+            } else if (orbits.length > 384 && i > 96) {
                 strokeHandler(4);
-            }
-            else if(orbits.length > 384 && i < 96){
+            } else if (orbits.length > 384 && i < 96) {
                 strokeHandler(5);
             }
             // 3 year +
-            else if(orbits.length > 288 && i > 288){
+            else if (orbits.length > 288 && i > 288) {
                 strokeHandler(1);
-            }
-            else if(orbits.length > 288 && i > 192){
+            } else if (orbits.length > 288 && i > 192) {
                 strokeHandler(2);
-            }
-            else if(orbits.length > 288 && i > 96){
+            } else if (orbits.length > 288 && i > 96) {
                 strokeHandler(3);
-            }
-            else if(orbits.length > 288 && i < 96){
+            } else if (orbits.length > 288 && i < 96) {
                 strokeHandler(4);
             }
             // 2 year +
-            else if(orbits.length > 192 && i > 192){
+            else if (orbits.length > 192 && i > 192) {
                 strokeHandler(1);
-            }
-            else if(orbits.length > 192 && i > 96){
+            } else if (orbits.length > 192 && i > 96) {
                 strokeHandler(2);
-            }
-            else if(orbits.length > 192 && i < 96){
+            } else if (orbits.length > 192 && i < 96) {
                 strokeHandler(3);
             }
             // 1 year +
-            else if(orbits.length > 96 && i > 96){
+            else if (orbits.length > 96 && i > 96) {
                 strokeHandler(1);
-            }
-            else if(orbits.length > 96 && i < 96){
+            } else if (orbits.length > 96 && i < 96) {
                 strokeHandler(2);
-            }
-            else{
+            } else {
                 strokeHandler(1);
             }
-    
+
             strokeWeight(2);
             line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y);
         }
@@ -226,8 +216,8 @@ function drawOrbitForward(counter){
     orbitsId++;
 }
 
-function strokeHandler(order){
-    switch(order){
+function strokeHandler(order) {
+    switch (order) {
         case 1:
             stroke(cWhite255);
             break;
@@ -246,83 +236,68 @@ function strokeHandler(order){
     }
 }
 
-function drawOrbitBackward(c){
+function drawOrbitBackward(c) {
     orbits.splice(orbits.length - 1, 1);
 
-    for(let i = 0; i < orbits.length; i++){
-        if(orbits.length > 1 && i > 0){
-            if(i > 0){
+    for (let i = 0; i < orbits.length; i++) {
+        if (orbits.length > 1 && i > 0) {
+            if (i > 0) {
                 // 5 year +
-                if(orbits.length > 480){
-                    if(i > (orbits.length - 96)){
+                if (orbits.length > 480) {
+                    if (i > orbits.length - 96) {
                         strokeHandler(1);
-                    }
-                    else if(i > (orbits.length - 192)){
+                    } else if (i > orbits.length - 192) {
                         strokeHandler(2);
-                    }
-                    else if(i > (orbits.length - 288)){
+                    } else if (i > orbits.length - 288) {
                         strokeHandler(3);
-                    }
-                    else if(i > (orbits.length - 384)){
+                    } else if (i > orbits.length - 384) {
                         strokeHandler(4);
-                    }
-                    else{
+                    } else {
                         strokeHandler(5);
                     }
                 }
                 // 4 year +
-                else if(orbits.length > 384 && i > 384){
+                else if (orbits.length > 384 && i > 384) {
                     strokeHandler(1);
-                }
-                else if(orbits.length > 384 && i > 288){
+                } else if (orbits.length > 384 && i > 288) {
                     strokeHandler(2);
-                }
-                else if(orbits.length > 384 && i > 192){
+                } else if (orbits.length > 384 && i > 192) {
                     strokeHandler(3);
-                }
-                else if(orbits.length > 384 && i > 96){
+                } else if (orbits.length > 384 && i > 96) {
                     strokeHandler(4);
-                }
-                else if(orbits.length > 384 && i < 96){
+                } else if (orbits.length > 384 && i < 96) {
                     strokeHandler(5);
                 }
                 // 3 year +
-                else if(orbits.length > 288 && i > 288){
+                else if (orbits.length > 288 && i > 288) {
                     strokeHandler(1);
-                }
-                else if(orbits.length > 288 && i > 192){
+                } else if (orbits.length > 288 && i > 192) {
                     strokeHandler(2);
-                }
-                else if(orbits.length > 288 && i > 96){
+                } else if (orbits.length > 288 && i > 96) {
                     strokeHandler(3);
-                }
-                else if(orbits.length > 288 && i < 96){
+                } else if (orbits.length > 288 && i < 96) {
                     strokeHandler(4);
                 }
                 // 2 year +
-                else if(orbits.length > 192 && i > 192){
+                else if (orbits.length > 192 && i > 192) {
                     strokeHandler(1);
-                }
-                else if(orbits.length > 192 && i > 96){
+                } else if (orbits.length > 192 && i > 96) {
                     strokeHandler(2);
-                }
-                else if(orbits.length > 192 && i < 96){
+                } else if (orbits.length > 192 && i < 96) {
                     strokeHandler(3);
                 }
                 // 1 year +
-                else if(orbits.length > 96 && i > 96){
+                else if (orbits.length > 96 && i > 96) {
                     strokeHandler(1);
-                }
-                else if(orbits.length > 96 && i < 96){
+                } else if (orbits.length > 96 && i < 96) {
                     strokeHandler(2);
-                }
-                else{
+                } else {
                     strokeHandler(1);
                 }
             }
 
             strokeWeight(2);
-            line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y)
+            line(orbits[i - 1].x, orbits[i - 1].y, orbits[i].x, orbits[i].y);
         }
     }
 
@@ -331,7 +306,7 @@ function drawOrbitBackward(c){
 
 // Change the planet by correct mouseclick
 function mouseClicked(event) {
-    if(event.target){
+    if (event.target) {
         //Mozilla
         // let selectedElement = event.explicitOriginalTarget;
         // let parentElement = selectedElement.parentElement;
@@ -342,64 +317,68 @@ function mouseClicked(event) {
         let selectedCelestialObject = event.target.className;
         let isDefault = false;
 
-        switch(selectedCelestialObject) {
-            case 'mercury':
+        switch (selectedCelestialObject) {
+            case "mercury":
                 currentCelestialObjectId = 0;
                 break;
-            case 'venus':
+            case "venus":
                 currentCelestialObjectId = 1;
                 break;
-            case 'moon':
+            case "moon":
                 currentCelestialObjectId = 2;
                 break;
-            case 'mars':
+            case "mars":
                 currentCelestialObjectId = 3;
                 break;
-            case 'jupiter':
+            case "jupiter":
                 currentCelestialObjectId = 4;
                 break;
-            case 'saturn':
+            case "saturn":
                 currentCelestialObjectId = 5;
                 break;
-            case 'uranus':
+            case "uranus":
                 currentCelestialObjectId = 6;
                 break;
-            case 'neptune':
+            case "neptune":
                 currentCelestialObjectId = 7;
                 break;
-            case 'pluto':
+            case "pluto":
                 currentCelestialObjectId = 8;
                 break;
             default:
                 currentCelestialObjectId = 0;
                 isDefault = true;
                 break;
+        }
+
+        if (!isDefault) {
+            currentCelestialObject = celestialObjects[currentCelestialObjectId];
+
+            //Change appearance in menu
+            let currentCelestialBody = document.querySelector(
+                ".celestial_body---selected"
+            );
+
+            if (currentCelestialBody) {
+                currentCelestialBody.classList.remove(
+                    "celestial_body---selected"
+                );
             }
 
-            if(!isDefault){
-                currentCelestialObject = celestialObjects[currentCelestialObjectId];
-            
-                //Change appearance in menu
-                let currentCelestialBody = document.querySelector(".celestial_body---selected");
-    
-                if(currentCelestialBody){
-                    currentCelestialBody.classList.remove("celestial_body---selected");
-                }
-    
-                parentElement.classList.add("celestial_body---selected");
+            parentElement.classList.add("celestial_body---selected");
 
-                document.querySelector(".description").innerHTML = `
+            document.querySelector(".description").innerHTML = `
                     Point of view of Earth<br><br>
                     Scale 1/${currentCelestialObject.divideBy}
-                    `
-    
-                resetDesign();
-            }
+                    `;
+
+            resetDesign();
+        }
     }
 }
 
 // Basic setup when changing screens or layout
-function resetDesign(){
+function resetDesign() {
     // Reset all the variables
     drawCount = 0;
     centerWidth = windowWidth / 2;
@@ -419,14 +398,13 @@ function resetDesign(){
 }
 
 // Resize the window
-function windowResized(){
+function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 
-    if(isRefreshed === 0){
+    if (isRefreshed === 0) {
         resetDesign();
         isRefreshed = 255;
-    }
-    else{
+    } else {
         currentCelestialObject = currentCelestialObject;
         currentCelestialObject.getOrbitData();
         listOrbits = currentCelestialObject.getOrbits();
@@ -439,49 +417,49 @@ function mouseWheel() {
     getCurrentTimestamp();
 }
 
-function getCurrentTimestamp(){
+function getCurrentTimestamp() {
     let newTimestampElement;
     let date;
     let currentTM;
 
     //Different threshold for the moon
-    try{
-        newTimestampElement = document.querySelector(".timeline___month---current").getAttribute('id');
+    try {
+        newTimestampElement = document
+            .querySelector(".timeline___month---current")
+            .getAttribute("id");
         date = newTimestampElement.split("-");
         currentTM = parseInt(date[2]);
 
-        if(currentCelestialObject.name === "moon"){
+        if (currentCelestialObject.name === "moon") {
             thresholdOrbit = currentTM * 30;
-        }
-        else{
+        } else {
             // 1 month = 4 section of orbits. Each section consists of 2 lines so 8.
             thresholdOrbit = currentTM * 8;
         }
-    }
-    catch(error){
-        newTimestampElement = document.querySelector(".timeline___month---current").getAttribute('id');
+    } catch (error) {
+        newTimestampElement = document
+            .querySelector(".timeline___month---current")
+            .getAttribute("id");
         date = newTimestampElement.split("-");
         currentTM = parseInt(date[2]);
 
-        if(currentCelestialObject === undefined){
+        if (currentCelestialObject === undefined) {
             currentCelestialObject = celestialObjects[0];
             //thresholdOrbit = currenTM;
-        }
-        else{
+        } else {
             // 1 month = 4 section of orbits. Each section consists of 2 lines so 8.
             thresholdOrbit = currentTM * 8;
         }
     }
 
     // Detect forward or backward scroll
-    if(currentPos < thresholdOrbit){
+    if (currentPos < thresholdOrbit) {
         isForward = true;
     }
     // As the scroll is a bit too sensitive, check if the scroll has actually changed something. If not, be the same.
-    else if(currentPos === thresholdOrbit){
+    else if (currentPos === thresholdOrbit) {
         isForward = isForward;
-    }
-    else{
+    } else {
         isForward = false;
         isBackwardDrawn = false;
     }
@@ -490,35 +468,35 @@ function getCurrentTimestamp(){
     currentPos = thresholdOrbit;
 }
 
-function drawEarth(){
+function drawEarth() {
     let sizeEarth = 0;
 
-    switch(currentCelestialObject.name) {
-        case 'mercury':
+    switch (currentCelestialObject.name) {
+        case "mercury":
             sizeEarth = 45;
             break;
-        case 'venus':
+        case "venus":
             sizeEarth = 40;
             break;
-        case 'moon':
+        case "moon":
             sizeEarth = 35;
             break;
-        case 'mars':
+        case "mars":
             sizeEarth = 30;
             break;
-        case 'jupiter':
+        case "jupiter":
             sizeEarth = 25;
             break;
-        case 'saturn':
+        case "saturn":
             sizeEarth = 20;
             break;
-        case 'uranus':
+        case "uranus":
             sizeEarth = 15;
             break;
-        case 'neptune':
+        case "neptune":
             sizeEarth = 10;
             break;
-        case 'pluto':
+        case "pluto":
             sizeEarth = 5;
             break;
         default:
