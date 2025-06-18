@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/index.js" type="module"></script>
+        <title>Schattenjager</title>
+    </head>
+    <body>
+        <div class="disclaimer">🚧 dit project is nog in ontwikkeling</div>
+        <header>
+            <a href="."><h1>JavaScript projecten</h1></a>
+            <div class="btn---container">
+                <div class="btn---desktop btn---desktop___orange"><p>-</p></div>
+                <div class="btn---desktop btn---desktop___red"><p>x</p></div>
+            </div>
+        </header>
+        <div class="container">
+            <section>
+                <div class="menu">
+                    <div class="title">
+                        <h3>Keuzemenu</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#" id="btn---settings___beginner">
+                                BEGINNER (speelveld 10 x 10, 3 schatten, 10
+                                muren, 3 harten)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="btn---settings___intermediate">
+                                GEMIDDELD (speelveld 20 x 20, 10 schatten, 60
+                                muren, 2 harten)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="btn---settings___expert">
+                                EXPERT (speelveld 30 x 30, 20 schatten, 150
+                                muren, 2 harten)
+                            </a>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <p>CUSTOM</p>
+                                    <p id="warning"></p>
+                                </li>
+                                <li>
+                                    speelveld:
+                                    <div>
+                                        <input
+                                            type="range"
+                                            min="10"
+                                            max="30"
+                                            value="10"
+                                            step="5"
+                                            id="custom---gameboard"
+                                        />
+
+                                        <p>
+                                            <span
+                                                id="custom---gameboard___value"
+                                                >10</span
+                                            >
+                                            / 30
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    schatten:
+                                    <div>
+                                        <input
+                                            type="range"
+                                            min="3"
+                                            max="20"
+                                            value="3"
+                                            id="custom---treasures"
+                                        />
+                                        <p>
+                                            <span
+                                                id="custom---treasures___value"
+                                                >3</span
+                                            >
+                                            / 20
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    muren:
+                                    <div>
+                                        <input
+                                            type="range"
+                                            min="10"
+                                            max="20"
+                                            value="10"
+                                            step="5"
+                                            id="custom---walls"
+                                        />
+                                        <p>
+                                            <span id="custom---walls___value"
+                                                >10</span
+                                            >
+                                            /
+                                            <span id="custom---walls___max"
+                                                >20</span
+                                            >
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    harten:
+                                    <div>
+                                        <input
+                                            type="range"
+                                            min="1"
+                                            max="10"
+                                            value="1"
+                                            id="custom---hearts"
+                                        />
+                                        <p>
+                                            <span id="custom---hearts___value"
+                                                >1</span
+                                            >
+                                            / 10
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button id="btn---settings___custom">
+                                        Speel custom spel
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <main class="hide">
+                <div id="legend">
+                    <div class="title">
+                        <h3>Legend</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <span
+                                class="legend---icon legend---icon___enemy"
+                            ></span>
+                            <p>vijand</p>
+                        </li>
+                        <li>
+                            <span
+                                class="legend---icon legend---icon___player-hurt"
+                            ></span>
+                            <p>jij (gewond)</p>
+                        </li>
+                        <li>
+                            <span
+                                class="legend---icon legend---icon___player"
+                            ></span>
+                            <p>jij</p>
+                        </li>
+                        <li>
+                            <span
+                                class="legend---icon legend---icon___wall"
+                            ></span>
+                            <p>muur</p>
+                        </li>
+                        <li>
+                            <span
+                                class="legend---icon legend---icon___grass"
+                            ></span>
+                            <p>gras</p>
+                        </li>
+                        <li>
+                            <span
+                                class="legend---icon legend---icon___treasure"
+                            ></span>
+                            <p>schat</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="spel">
+                    <div class="title">
+                        <h2>schattenjager.exe</h2>
+                    </div>
+                    <canvas id="spelbord"></canvas>
+                </div>
+                <div id="info">
+                    <div class="title">
+                        <h3>info.exe</h3>
+                    </div>
+                    <div>
+                        <p>Levens: <span id="hearts___player">3</span></p>
+                        <p>
+                            Schatten: <span id="treasure___player">0</span> /
+                            <span id="treasure___max">??</span>
+                        </p>
+                        <p id="info---enemy"></p>
+                    </div>
+                </div>
+            </main>
+            <section id="end-screen" class="hide">
+                <div id="message">
+                    <div class="title">
+                        <h2>Schattenjager.exe</h2>
+                    </div>
+                    <div class="message---info">
+                        <span id="emoji"></span>
+                        <h2 id="message---title"></h2>
+                        <p>Wil je opnieuw spelen?</p>
+                        <div class="message---options">
+                            <a href="#" id="question___option---yes">ja</a>
+                            <a href=".">neen</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
